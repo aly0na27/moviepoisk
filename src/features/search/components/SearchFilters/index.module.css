@@ -1,0 +1,36 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.selectWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.select {
+    width: 360px;
+    height: 40px;
+    border-radius: 8px;
+    /*padding: 10px 16px;*/
+    border: 1px solid #E0E0E0;
+}
+
+.select:focus {
+    outline: none;
+    border: 1px solid #FF5500;
+}
+

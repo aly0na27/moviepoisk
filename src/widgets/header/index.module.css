@@ -1,0 +1,47 @@
+.header {
+    position: sticky;
+    transition: all 0.3s ease;
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #333;
+}
+
+.isSticky {
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    animation: smoothScroll 1s forwards
+}
+
+@keyframes smoothScroll {
+    0% {
+        transform: translateY(-142px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+.logo {
+    font-weight: 700;
+    font-size: 32px;
+    color:  #fff;
+    line-height: 37.5px;
+}
+
+.profileIcon {
+    width: 40px;
+    content: url('person.svg');
+    background-color: #fff;
+    border-radius: 32px;
+    padding: 8px
+}
+
+.wrapperLogout {
+    display: flex;
+    flex-direction: columne;
+    align-items: center;
+    gap: 16px;
+}

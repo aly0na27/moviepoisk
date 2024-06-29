@@ -1,0 +1,56 @@
+
+.movieInfoWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 24px
+}
+
+.poster {
+    width: 400px;
+    height: 500px;
+    border-radius: 8px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title h2 {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0;
+}
+
+.movieInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 32px
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.description span {
+    font-weight: 600;
+}
+
+p {
+    margin: 0;
+}
+
+.actorHeader {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0;
+}
