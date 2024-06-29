@@ -22,7 +22,7 @@ export const login = createAsyncThunk('authApi/login', async ({username, passwor
             }
         }
     } catch (err) {
-        return thunkApi.rejectWithValue({error: err.message})
+        return thunkApi.rejectWithValue({error: err})
     }
 })
 
