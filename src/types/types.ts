@@ -23,6 +23,9 @@ export type ActorT = {
 export type GenresT = keyof typeof GENRES;
 export type YearsT = keyof typeof YEARS;
 
+export type GenresType = typeof GENRES;
+export type YearsType = typeof YEARS;
+
 export type UserInfoT = {
     username: string
     password: string

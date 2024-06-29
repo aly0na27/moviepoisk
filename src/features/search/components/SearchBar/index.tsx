@@ -23,10 +23,15 @@ export const SearchInput = () => {
 
     return (
         <div className={styles.searchMoviesWrapper}>
+            <div className={styles.inputContainer}>
             <input className={styles.input} type={'text'} placeholder={"Название фильма"} value={value}
                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                        setValue(e.target.value)
                    }}/>
+                <div className={styles.clearButton} onClick={() => {
+                    setValue('')
+                }}></div>
+            </div>
             <SearchResult searchTerm={debounce}/>
         </div>
     )

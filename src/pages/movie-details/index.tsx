@@ -14,9 +14,8 @@ function MovieDetails() {
     const movieId = useAppSelector(state => state.movie.id)
 
     useEffect(() => {
-
         const movieId = location.pathname.split('/')[2]
-        dispatch(setMovieId(+movieId))
+        dispatch(setMovieId(movieId))
 
     }, [])
 

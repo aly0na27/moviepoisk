@@ -6,24 +6,24 @@ export const Actors = ({actors}: { actors: ActorT[] }) => {
 
     const refSlider = useRef<HTMLDivElement | null>(null)
     const refSliderWrapper = useRef<HTMLDivElement | null>(null)
+    const refRightArrow = useRef<HTMLDivElement | null>(null)
+    const refLeftArrow = useRef<HTMLDivElement | null>(null)
 
     const [currShift, setCurrShift] = useState(0)
 
-    const check = () => {
-        if (re)
-    }
     return (
         <div ref={refSliderWrapper} className={styles.actorsWrapper}>
             <div ref={refSlider} className={styles.slider}>
-                {actors.map((el) => {
+                {actors.map((el, id) => {
                     return (
-                        <div className={styles.actorWrapper}>
+                        <div key={id} className={styles.actorWrapper}>
                             <img className={styles.actorPhoto} src={el.photo} alt={el.name}/>
                             <p>{el.name}</p>
                         </div>)
                 })}
+
             </div>
-            <div className={styles.arrowLeft} onClick={() => {
+            <div ref={refLeftArrow} className={styles.arrowLeft} onClick={() => {
                 const slider = refSlider.current
 
                 if (slider) {
@@ -45,7 +45,7 @@ export const Actors = ({actors}: { actors: ActorT[] }) => {
                     setCurrShift(currShift - a)
                 }
             }}></div>
-            <div className={styles.arrowRight} onClick={() => {
+            <div ref={refRightArrow} className={styles.arrowRight} onClick={() => {
 
                 const slider = refSlider.current
 

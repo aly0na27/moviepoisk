@@ -43,3 +43,7 @@
     right: 0px;
     transition: 0.7s ease;
 }
+
+.hide {
+    content: none;
+}

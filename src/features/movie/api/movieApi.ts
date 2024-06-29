@@ -3,16 +3,18 @@ import {FullMovieInfoT} from "../../../types/types.ts";
 
 export const movieApi = createApi({
     reducerPath: 'movieApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030/api/v1/' }),
+    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:3030/api/v1/'}),
     tagTypes: ['Movie'],
     endpoints: (builder) => ({
         getMovieByIdQuery: builder.query<FullMovieInfoT, number>({
             query: (id) => {
                 return `movie/${id}`
             },
-            providesTags: [{type: 'Movie', id: 'ALL'}]
         }),
-        setRating: builder.mutation<{token: string}, {movieId: string, user_rate: number}>({
+        setRating: builder.mutation<{ movieId: string, newAverageRate: string, newTotalRatesCount: number }, {
+            movieId: string,
+            user_rate: number
+        }>({
             query({movieId, user_rate}) {
 
                 return {
@@ -24,7 +26,6 @@ export const movieApi = createApi({
                     }
                 }
             },
-            invalidatesTags: [{type: 'Movie', id: 'ALL'}]
         })
     }),
 })

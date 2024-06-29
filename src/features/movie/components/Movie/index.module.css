@@ -54,3 +54,28 @@ p {
     line-height: 32px;
     margin: 0;
 }
+
+.errorWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-height: 70vh;
+}
+
+.errorWrapper h3 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #000;
+    margin: 0;
+}
+
+.errorWrapper p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+    margin: 0;
+}

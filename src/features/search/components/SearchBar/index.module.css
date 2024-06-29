@@ -1,3 +1,8 @@
+.inputContainer {
+    position: relative;
+    width: 300px;
+}
+
 .input {
     width: 300px;
     height: 40px;
@@ -7,6 +12,15 @@
     padding: 12px 32px;
     border: 1px solid #CED2D6;
     gap: 8px;
+}
+
+.clearButton {
+    position: absolute;
+    content: url("CloseIcon.svg");
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .input:focus {

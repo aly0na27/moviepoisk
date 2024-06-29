@@ -5,17 +5,22 @@ import styles from './index.module.css'
 import {MovieRating} from "../../../../shared/ui/movie-card/movie_rating";
 import {Actors} from "../Actors";
 
-export const Movie = ({id}: { id: number }) => {
-    const {data, isFetching, isError} = useGetMovieByIdQueryQuery(id)
-
+export const Movie = ({id}: { id: string }) => {
+    const { isFetching, isError} = useGetMovieByIdQueryQuery(+id)
     const isAuth = useAppSelector((state) => state.auth.isAuth)
+    const data = useAppSelector((state) => state.movie.data)
 
     if (isFetching) {
         return <Loader/>
     }
 
     if (isError || !data) {
-        return <div>Ошибка</div>
+        return (
+            <div className={styles.errorWrapper}>
+                <h3>Фильм не найден</h3>
+                <p>Попробуйте изменить запрос</p>
+            </div>
+        )
     }
 
     return (
