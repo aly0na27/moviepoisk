@@ -1,4 +1,3 @@
-import './index.css'
 import {withProviders} from "./providers/"
 import {Routing} from "../pages";
 import {Header} from "../widgets/header";

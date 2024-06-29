@@ -39,9 +39,7 @@ export const SearchResult = ({searchTerm}: { searchTerm: string }) => {
         <>
             <div className={styles.wrapper}>
                 {data?.search_result.map((movie: ShortMovieInfoT) => {
-                    return <MovieCard key={movie.id} id={movie.id} title={movie.title} description={movie.description}
-                                      release_year={movie.release_year} poster={movie.poster} genre={movie.genre}
-                                      rating={movie.rating}/>
+                    return <MovieCard key={movie.id} {...movie}/>
                 })}
             </div>
             <Pagination pageNumber={page} totalPages={data.total_pages} onRightArrowClickHandler={(page) => {

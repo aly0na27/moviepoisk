@@ -11,8 +11,7 @@
     gap: 24px;
     flex-direction: column;
     position: relative;
-    width: 80%; /* Пример: ширина контейнера на 80% от ширины экрана */
-    max-width: 1424px; /* Максимальная ширина контейнера для адаптивности */
-    min-height: 80vh; /* Высота контейнера (может быть любой другой высоты) */
-
+    width: 80%;
+    max-width: 1424px;
+    min-height: 80vh;
 }

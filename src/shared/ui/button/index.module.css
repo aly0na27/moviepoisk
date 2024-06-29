@@ -1,10 +1,10 @@
 .btn {
     /*width: 72px;*/
     height: 40px;
-    background-color: #FF5500;
+    background-color: var(--secondary-color);
     border: none;
-    border-radius: 8px;
-    color: #fff;
+    border-radius: var(--border-radius);
+    color: var(--primary-color);
     padding: 8px 16px;
     font-weight: 500;
     font-size: 14px;
@@ -12,17 +12,16 @@
     text-align: center;
 }
 .btn:hover {
-    background-color: #E94E00;
+    background-color: var(--hover-color);
     cursor: pointer;
 }
 .btnTransparent {
-    /*background-color: #333;*/
     background: transparent;
-    border: solid 1px #FF5500;
-    color: #FF5500
+    border: solid 1px var(--secondary-color);
+    color: var(--secondary-color)
 }
 
 .btnTransparent:hover {
-    border: solid 1px #E94E00;
+    border: solid 1px var(--hover-color);
     background: transparent;
 }
