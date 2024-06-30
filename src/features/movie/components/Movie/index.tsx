@@ -6,11 +6,11 @@ import {MovieRating} from "../../../../shared/ui/movie-card/movie_rating";
 import {Actors} from "../Actors";
 
 export const Movie = ({id}: { id: string }) => {
-    const { isFetching, isError} = useGetMovieByIdQueryQuery(+id)
+    const { isError, isLoading} = useGetMovieByIdQueryQuery(+id)
     const isAuth = useAppSelector((state) => state.auth.isAuth)
     const data = useAppSelector((state) => state.movie.data)
 
-    if (isFetching) {
+    if (isLoading) {
         return <Loader/>
     }
 

@@ -9,7 +9,7 @@ export const movieApi = createApi({
         getMovieByIdQuery: builder.query<FullMovieInfoT, number>({
             query: (id) => {
                 return `movie/${id}`
-            },
+            }, providesTags: [{type: 'Movie', id: 'ALL'}]
         }),
         setRating: builder.mutation<{ movieId: string, newAverageRate: string, newTotalRatesCount: number }, {
             movieId: string,
@@ -25,7 +25,7 @@ export const movieApi = createApi({
                         Authorization: `Bearer ${JSON.parse(localStorage.getItem('user') as string).token}`
                     }
                 }
-            },
+            }, invalidatesTags: [{type: 'Movie', id: 'ALL'}]
         })
     }),
 })
