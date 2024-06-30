@@ -1,0 +1,32 @@
+.starWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    cursor: pointer;
+    transition: all ease    1s;
+}
+
+.starWrapperItem {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+    transition: all 1s;
+
+}
+
+.starFilled {
+    content: url("StarIcon/star-filled.svg");
+    transition: all ease 1s;
+}
+
+.star {
+    content: url('StarIcon/star.svg');
+    transition: all ease 1s;
+}
+
+.starFilledHover {
+    transition: all ease 1s;
+    content: url('StarIcon/star-filled-hover.svg');
+}
+
