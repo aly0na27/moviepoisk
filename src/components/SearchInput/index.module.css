@@ -1,0 +1,40 @@
+.inputContainer {
+    position: relative;
+    width: 300px;
+}
+
+.input {
+    width: 300px;
+    height: 40px;
+    background: url('Icon.svg') no-repeat 10px center;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 12px 32px;
+    border: 1px solid #CED2D6;
+    gap: 8px;
+}
+
+.clearButton {
+    position: absolute;
+    content: url("CloseIcon.svg");
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.input:focus {
+    outline: none;
+    border: 1px solid var(--secondary-color);
+}
+
+.searchMoviesWrapper {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    position: relative;
+    width: 80%;
+    max-width: 1424px;
+    min-height: 80vh;
+
+}

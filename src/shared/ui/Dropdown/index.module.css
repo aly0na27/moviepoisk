@@ -1,0 +1,61 @@
+.dropdown {
+    position: relative;
+}
+
+.input {
+    width: 360px;
+    height: 40px;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    border: 1px solid #E0E0E0;
+    padding: 10px 16px
+}
+.inputActive {
+    outline: none;
+    border: 1px solid var(--secondary-color);
+}
+.input:focus {
+    outline: none;
+    border: 1px solid var(--secondary-color);
+}
+
+.dropdownMenu {
+    position: absolute;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 360px;
+    box-shadow: 0 10px 22px -4px rgba(27, 31, 35, 0.12);
+    z-index: 1;
+    border-radius: var(--border-radius);
+    overflow: scroll;
+    padding: 8px;
+    height: 228px;
+    margin-top: 8px;
+}
+
+.dropdownMenuItem {
+    padding: 12px;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    height: 42px
+}
+
+.dropdownMenuItem:hover {
+    background-color: var(--hover-secondary-color);
+    cursor: pointer;
+}
+
+.closeButton {
+    position: absolute;
+    content: url('Icon.svg');
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.closeButtonActive {
+    transform: translateY(-50%) rotate(180deg);
+}

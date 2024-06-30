@@ -1,22 +1,25 @@
-'use Client'
-import {Header} from "@/widgets/header";
-import {SearchResult} from "@/features/search/components/SearchResult";
-import {useState} from "react";
+'use client'
+
+// import {useState} from "react";
 import {GenresT, YearsT} from "@/types/types";
-import {SearchFilters} from "@/app/components/SearchFilters";
-import {SearchInput} from "@/app/components/SearchInput";
+import {SearchFilters} from "@/components/SearchFilters";
+import {SearchInput} from "@/components/SearchInput";
+import ServerComponent from "@/components/SearchResult";
+import {useSearchParams} from "next/navigation";
 
 
 export default function Home() {
-    const [title, setTitle] = useState('')
-    const [genre, setGenre] = useState<GenresT>('0')
-    const [year, setYear] = useState<YearsT>('0')
+    const searchParams = useSearchParams()
+    const title = searchParams.get('title') ? searchParams.get('title') as string : ''
+    const genre = searchParams.get('genre') ? searchParams.get('genre') as GenresT : '0'
+    const year = searchParams.get('release_year') ? searchParams.get('release_year') as YearsT : '0'
 
     return (
         <main>
-            <SearchFilters genre={genre} year={year} setGenre={setGenre} setYear={setYear}/>
-            <SearchInput title={title} setTitle={setTitle}/>
-            <SearchResult/>
+            {/*<SearchFilters/>*/}
+            <SearchInput/>
+            {/*<SearchResult/>*/}
+            <ServerComponent title={title} genre={genre} year={year}/>
         </main>
     );
 }
