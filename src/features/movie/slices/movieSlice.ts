@@ -14,13 +14,12 @@ const initialState: StateType = {
         title: '',
         description: '',
         release_year: 0,
-        poster: '', //base64 img
+        poster: '',
         genre: '',
-        rating: '',//float
-        total_rates_count: '', //int
+        rating: '',
+        total_rates_count: '',
         actors: []
     }
-
 }
 
 export const movieSlice = createSlice({
@@ -39,6 +38,7 @@ export const movieSlice = createSlice({
         }).addMatcher(movieApi.endpoints.setRating.matchFulfilled, (state, action) => {
             state.data.rating = action.payload.newAverageRate
             state.data.total_rates_count = action.payload.newTotalRatesCount.toString()
+
         })
     }
 })
