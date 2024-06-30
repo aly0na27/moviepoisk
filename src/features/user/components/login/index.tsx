@@ -42,7 +42,7 @@ export const Login = ({setModalIsOpen}: LoginPropsT) => {
 
                         <div className={styles.inputWrapper}>
                             <label>Логин <span className={styles.formSpan}>*</span></label>
-                            <input className={styles.input} type="text" placeholder={'Введите логин'}
+                            <input className={styles.input + ' ' + (formError.username ? styles.inputError : '')} type="text" placeholder={'Введите логин'}
                                    value={form.username}
                                    onChange={(e) => {
                                        setForm({...form, username: e.target.value})
@@ -52,7 +52,7 @@ export const Login = ({setModalIsOpen}: LoginPropsT) => {
                         </div>
                         <div className={styles.inputWrapper}>
                             <label>Пароль <span className={styles.formSpan}>*</span></label>
-                            <input className={styles.input} type="password" placeholder={'Введите пароль'}
+                            <input className={styles.input  + ' ' + (formError.password ? styles.inputError : '')} type="password" placeholder={'Введите пароль'}
                                    value={form.password}
                                    onChange={(e) => {
                                        setForm({...form, password: e.target.value})
