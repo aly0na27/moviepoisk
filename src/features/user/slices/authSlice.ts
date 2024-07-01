@@ -1,4 +1,4 @@
-import {createSlice,  PayloadAction} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {UserInfoT} from "../../../types/types.ts";
 import {login, logout} from "../api/authApi.ts";
 
@@ -46,5 +46,6 @@ export const authSlice = createSlice({
         })
     }
 });
+
 
 export default authSlice.reducer;

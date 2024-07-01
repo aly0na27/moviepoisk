@@ -4,10 +4,11 @@ import {Loader} from "../../../../shared/ui/loader/loader.tsx";
 import styles from './index.module.css'
 import {MovieRating} from "../../../../shared/ui/movie-card/movie_rating";
 import {Actors} from "../Actors";
+import {selectIsAuth} from "../../../../app/selectors.ts";
 
 export const Movie = ({id}: { id: string }) => {
     const { isError, isLoading} = useGetMovieByIdQueryQuery(+id)
-    const isAuth = useAppSelector((state) => state.auth.isAuth)
+    const isAuth = useAppSelector(selectIsAuth)
     const data = useAppSelector((state) => state.movie.data)
 
     if (isLoading) {

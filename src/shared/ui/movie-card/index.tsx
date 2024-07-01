@@ -3,12 +3,13 @@ import {ShortMovieInfoT} from "../../../types/types.ts";
 import {MovieRating} from "./movie_rating";
 import {useNavigate} from "react-router";
 import {useAppSelector} from "../../../app/store.ts";
+import {selectIsAuth} from "../../../app/selectors.ts";
 
 
 export const MovieCard = (props: ShortMovieInfoT) => {
     const navigate = useNavigate()
 
-    const isAuth = useAppSelector(state => state.auth.isAuth)
+    const isAuth = useAppSelector(selectIsAuth)
 
     return (
         <div className={styles.cardWrapper} onClick={() => {

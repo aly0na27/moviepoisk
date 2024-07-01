@@ -4,13 +4,14 @@ import {useEffect, useRef, useState} from "react";
 import {Login} from "../../features/user/components/login";
 import {useAppDispatch, useAppSelector} from "../../app/store.ts";
 import {logout} from "../../features/user/api/authApi.ts";
+import {selectIsAuth} from "../../app/selectors.ts";
 
 export const Header = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [isSticky, setIsSticky] = useState(false)
 
     const ref = useRef<HTMLDivElement>(null)
-    const isAuth = useAppSelector(state => state.auth.isAuth)
+    const isAuth = useAppSelector(selectIsAuth)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
