@@ -20,10 +20,28 @@ export const SearchResult = ({searchTerm}: { searchTerm: string }) => {
         dispatch(searchSlice.actions.setTitle(searchTerm))
     }, [searchTerm]);
 
-    const {data, isFetching} = useSearchMoviesQuery({title, genre, release_year, page})
+    const {data, isFetching, error} = useSearchMoviesQuery({title, genre, release_year, page})
 
     if (isFetching) {
         return <Loader/>
+    }
+
+    if (error) {
+        if ('data' in error) {
+            return (
+                <div className={styles.emptyData}>
+                    <h3>{error.data}</h3>
+                    <p>Попробуйте изменить запрос</p>
+                </div>
+            )
+        } else {
+            return (
+                <div className={styles.emptyData}>
+                    <h3> Произошла непредвиденная ошибка</h3>
+                    <p>Попробуйте позже</p>
+                </div>
+            )
+        }
     }
 
     if (!data?.search_result.length) {

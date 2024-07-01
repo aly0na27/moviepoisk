@@ -1,9 +1,30 @@
-import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
+import {
+    BaseQueryFn,
+    createApi,
+    FetchArgs,
+    fetchBaseQuery,
+    FetchBaseQueryError,
+    FetchBaseQueryMeta
+} from "@reduxjs/toolkit/query/react";
 import {FullMovieInfoT} from "../../../types/types.ts";
+
+const baseUrl = 'http://localhost:3030/api/v1/'
+
+const baseQuery = fetchBaseQuery({baseUrl})
+
+const baseQueryWithErrorHandling: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta> = async (args, api, extraOptions) => {
+    const result = await baseQuery(args, api, extraOptions)
+
+    if (result.error) {
+        console.error(result.error)
+    }
+
+    return result
+}
 
 export const movieApi = createApi({
     reducerPath: 'movieApi',
-    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:3030/api/v1/'}),
+    baseQuery: baseQueryWithErrorHandling,
     tagTypes: ['Movie'],
     endpoints: (builder) => ({
         getMovieByIdQuery: builder.query<FullMovieInfoT, number>({

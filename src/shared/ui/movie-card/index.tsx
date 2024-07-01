@@ -28,7 +28,7 @@ export const MovieCard = (props: ShortMovieInfoT) => {
                     <span className={styles.rowInfo}>{props.description}</span>
                 </div>
             </div>
-            {isAuth && <MovieRating movieId={props.id} isEditMode={false}/>}
+            {isAuth && <MovieRating movieId={props.id}/>}
         </div>
     )
 }

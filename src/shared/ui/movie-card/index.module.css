@@ -4,6 +4,7 @@
     background-color: var(--primary-color);
     gap: 24px;
     border-radius: var(--border-radius);
+    align-items: flex-start;
 }
 
 .cardWrapper:hover {

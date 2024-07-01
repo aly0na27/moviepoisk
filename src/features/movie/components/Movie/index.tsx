@@ -7,7 +7,7 @@ import {Actors} from "../Actors";
 import {selectIsAuth} from "../../../../app/selectors.ts";
 
 export const Movie = ({id}: { id: string }) => {
-    const { isError, isLoading} = useGetMovieByIdQueryQuery(+id)
+    const {isLoading, error} = useGetMovieByIdQueryQuery(+id)
     const isAuth = useAppSelector(selectIsAuth)
     const data = useAppSelector((state) => state.movie.data)
 
@@ -15,7 +15,25 @@ export const Movie = ({id}: { id: string }) => {
         return <Loader/>
     }
 
-    if (isError || !data) {
+    if (error) {
+        if ('data' in error) {
+            return (
+                <div className={styles.errorWrapper}>
+                    <h3>{error.data}</h3>
+                    <p>Попробуйте изменить запрос</p>
+                </div>
+            )
+        } else {
+            return (
+                <div className={styles.errorWrapper}>
+                    <h3> Произошла непредвиденная ошибка</h3>
+                    <p>Попробуйте позже</p>
+                </div>
+            )
+        }
+    }
+
+    if (!data) {
         return (
             <div className={styles.errorWrapper}>
                 <h3>Фильм не найден</h3>
@@ -31,7 +49,7 @@ export const Movie = ({id}: { id: string }) => {
                 <div className={styles.movieInfo}>
                     <div className={styles.title}>
                         <h2>{data.title}</h2>
-                        {isAuth && <MovieRating movieId={data.id} isEditMode={true}/>}
+                        {isAuth && <MovieRating movieId={data.id}/>}
                     </div>
 
                     <div className={styles.description}>

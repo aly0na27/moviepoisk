@@ -1,5 +1,26 @@
-import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {
+    BaseQueryFn,
+    createApi,
+    FetchArgs,
+    fetchBaseQuery,
+    FetchBaseQueryError,
+    FetchBaseQueryMeta
+} from '@reduxjs/toolkit/query/react';
 import {GenresT, ShortMovieInfoT, YearsT} from "../../../types/types.ts";
+
+const baseUrl = 'http://localhost:3030/api/v1/'
+
+const baseQuery = fetchBaseQuery({baseUrl})
+
+const baseQueryWithErrorHandling: BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta> = async (args, api, extraOptions) => {
+    const result = await baseQuery(args, api, extraOptions)
+
+    if (result.error) {
+        console.error(result.error)
+    }
+
+    return result
+}
 
 
 type SearchResult = {
@@ -16,7 +37,7 @@ type SearchParams = {
 
 export const searchApi = createApi({
     reducerPath: 'searchApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030/api/v1/' }),
+    baseQuery: baseQueryWithErrorHandling,
     endpoints: (builder) => ({
         searchMovies: builder.query<SearchResult, SearchParams>({
             query: ({title, genre, release_year, page}) => {
