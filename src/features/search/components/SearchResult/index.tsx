@@ -7,14 +7,15 @@ import {Loader} from "../../../../shared/ui/loader/loader.tsx";
 import {useEffect} from "react";
 import {searchSlice} from "../../slices/searchSlice.ts";
 import {Pagination} from "../../../../shared/ui/Pagination";
+import {selectGenre, selectPage, selectTitle, selectYear} from "../../../../app/selectors.ts";
 
 export const SearchResult = ({searchTerm}: { searchTerm: string }) => {
     const dispatch = useAppDispatch()
 
-    const title = useAppSelector((state) => state.search.title)
-    const genre = useAppSelector((state) => state.search.genre)
-    const release_year = useAppSelector((state) => state.search.year)
-    const page = useAppSelector(state => state.search.currPage)
+    const title = useAppSelector(selectTitle)
+    const genre = useAppSelector(selectGenre)
+    const release_year = useAppSelector(selectYear)
+    const page = useAppSelector(selectPage)
 
     useEffect(() => {
         dispatch(searchSlice.actions.setTitle(searchTerm))

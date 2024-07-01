@@ -7,14 +7,15 @@ import {useAppDispatch, useAppSelector} from "../../app/store.ts";
 import {searchSlice} from "../../features/search/slices/searchSlice.ts";
 import queryString from "query-string";
 import {GenresT, YearsT} from "../../types/types.ts";
+import {selectGenre, selectPage, selectTitle, selectYear} from "../../app/selectors.ts";
 
 function MoviesList() {
     const dispatch = useAppDispatch()
 
-    const title = useAppSelector((state) => state.search.title)
-    const genre = useAppSelector((state) => state.search.genre)
-    const year = useAppSelector((state) => state.search.year)
-    const currPage = useAppSelector((state) => state.search.currPage)
+    const title = useAppSelector(selectTitle)
+    const genre = useAppSelector(selectGenre)
+    const year = useAppSelector(selectYear)
+    const currPage = useAppSelector(selectPage)
 
     const navigate = useNavigate()
     const location = useLocation()
