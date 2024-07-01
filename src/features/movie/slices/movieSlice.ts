@@ -26,7 +26,7 @@ export const movieSlice = createSlice({
     name: 'movie',
     initialState: initialState,
     reducers: {
-        setId(state: StateType, action: PayloadAction<string>) {
+        setId(state: StateType, action: PayloadAction<string | null>) {
             state.id = action.payload
         }
     },

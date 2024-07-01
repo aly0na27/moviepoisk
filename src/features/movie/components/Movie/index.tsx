@@ -7,9 +7,10 @@ import {Actors} from "../Actors";
 import {selectIsAuth} from "../../../../app/selectors.ts";
 
 export const Movie = ({id}: { id: string }) => {
-    const {isLoading, error} = useGetMovieByIdQueryQuery(+id)
+    const {isLoading,  error} = useGetMovieByIdQueryQuery(+id)
     const isAuth = useAppSelector(selectIsAuth)
     const data = useAppSelector((state) => state.movie.data)
+
 
     if (isLoading) {
         return <Loader/>
