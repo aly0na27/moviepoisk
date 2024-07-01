@@ -2,7 +2,7 @@ import {createPortal} from "react-dom";
 import styles from './index.module.css'
 import {Button} from "../../../../shared/ui/button";
 import React, {useState} from "react";
-import {useAppDispatch} from "../../../../app/store.ts";
+import {useAppDispatch, useAppSelector} from "../../../../app/store.ts";
 
 import {login} from "../../api/authApi.ts";
 
@@ -14,6 +14,7 @@ export const Login = ({setModalIsOpen}: LoginPropsT) => {
     const [form, setForm] = useState({username: '', password: ''})
     const [formError, setFormError] = useState({username: '', password: ''})
 
+    const error = useAppSelector(state => state.auth.error)
     const dispatch = useAppDispatch()
 
     const clearForm = () => {
@@ -59,6 +60,7 @@ export const Login = ({setModalIsOpen}: LoginPropsT) => {
                                    }}/>
                             {formError.password ? <div className={styles.error}>{formError.password}</div> : <></>}
                         </div>
+                        {error ? <div className={styles.error}>{error}</div> : <></>}
                         <div className={styles.buttonWrapper}>
                             <Button text={'Войти'} isTransparent={false} onClick={e => {
                                 e?.stopPropagation()
